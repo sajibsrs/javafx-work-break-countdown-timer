@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Tracker">
+    <output-path>$PROJECT_DIR$/out/artifacts/Tracker</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="alias" value="" />
+        <option name="appClass" value="com.sajibsrs.tracker.Main" />
+        <option name="convertCss2Bin" value="true" />
+        <option name="description" value="This is a simple time tracker application by Sajidur Rahman Sajib (@sajibsrs)" />
+        <option name="enabledSigning" value="true" />
+        <option name="htmlParamFile" value="" />
+        <option name="keystore" value="" />
+        <option name="nativeBundle" value="exe" />
+        <option name="paramFile" value="" />
+        <option name="title" value="Tracker" />
+        <option name="vendor" value="Nitro Studio" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Tracker.jar">
+        <element id="module-output" name="Tracker" />
+      </element>
+    </root>
+  </artifact>
+</component>
