@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
 Class-Path: [JAVA_HOME]/lib/jfxrt.jar
-Main-Class: com.sajibsrs.tracker.Main
+Main-Class: com.sajibsrs.tracker.Tracker
 

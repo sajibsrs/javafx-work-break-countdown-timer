@@ -2,14 +2,17 @@
 <jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Tracker.jnlp">
   <information>
     <title>Tracker</title>
-    <vendor>Unknown</vendor>
-    <description>Tracker</description>
+    <vendor>Nitro Studio</vendor>
+    <description>This is a simple time tracker application by Sajidur Rahman Sajib (@sajibsrs)</description>
     <offline-allowed/>
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Tracker.jar" size="248613" download="eager" />
+    <jar href="Tracker.jar" size="255394" download="eager" />
   </resources>
+<security>
+  <all-permissions/>
+</security>
   <jfx:javafx-desc  width="600" height="400" main-class="com.sajibsrs.tracker.Main"  name="Tracker" />
   <update check="background"/>
 </jnlp>

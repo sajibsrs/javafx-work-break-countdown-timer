@@ -1,5 +1,6 @@
 package com.sajibsrs.tracker.controller;
 
+import com.sajibsrs.tracker.Main;
 import com.sajibsrs.tracker.model.UserAction;
 import com.sajibsrs.tracker.model.UserActionType;
 import javafx.animation.Animation;
@@ -7,7 +8,9 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -17,8 +20,13 @@ import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Home {
+
+public class Home implements Initializable, ControlledScreen {
+
+    ScreensController mController;
 
     @FXML private VBox container;
     @FXML private TextField firstName;
@@ -37,7 +45,9 @@ public class Home {
     public Home(){
         mTimerText = new SimpleStringProperty();
         mTaskText = new SimpleStringProperty();
+
         setTaskText("CURRENT TASK");
+
         setTimerText(0);
         mNotify = new AudioClip(getClass().getResource("/sounds/notify.mp3").toExternalForm());
     }
@@ -67,25 +77,37 @@ public class Home {
     }
 
     public void setTimerText(int remainingSeconds){
-        int minutes = (remainingSeconds/60);
+        int hours = (remainingSeconds/60/60);
+        int minutes = (remainingSeconds /60) % 60;
         int seconds = remainingSeconds % 60;
 
-        setTimerText(String.format("%02d:%02d", minutes, seconds));
+        //Show only minute and second if hour is not available
+        if (hours <= 0){
+            setTimerText(String.format("%02d:%02d", minutes, seconds));
+        }
+        else {
+            setTimerText(String.format("%02d:%02d:%02d", hours, minutes, seconds));
+        }
     }
 
     public void prepareAction(UserActionType type){
+
         mUserAction = new UserAction(type, "");
 
+        // set time from the user input
+        int userTime = Menu.timeInSeconds;
         if (mUserAction.getType() == UserActionType.FOCUS ){
             setTaskText("WORK IN PROGRESS");
+            if (userTime > 0){
+                mUserAction.setRemainingSeconds(userTime);
+            }
         }
         else if (mUserAction.getType() == UserActionType.BREAK ){
             setTaskText("TIME FOR A BREAK");
         }
-
         setTimerText(mUserAction.getRemainingSeconds());
         mTimeline = new Timeline();
-        mTimeline.setCycleCount(type.getTotalSeconds());
+        mTimeline.setCycleCount(mUserAction.getRemainingSeconds());
         mTimeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), event -> {
             mUserAction.countDown();
             setTimerText(mUserAction.getRemainingSeconds());
@@ -131,7 +153,7 @@ public class Home {
         getTimerStatus();
     }
 
-    public void handleRestart(){
+    public void handleReset(){
         if (mTimeline != null && mTimeline.getStatus() == Animation.Status.RUNNING){
             play_btn.getStyleClass().remove("hidden");
             pause_btn.getStyleClass().add("hidden");
@@ -163,31 +185,20 @@ public class Home {
         //alert.showAndWait();
         System.out.println("take a break notification");
     }
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+    public void setScreenParent(ScreensController screenParent){
+        mController = screenParent;
+    }
+
+    @FXML
+    private void goToScreen2(ActionEvent event){
+        mController.setScreen(Main.screen2ID);
+    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -27,6 +27,10 @@ public class UserAction {
         return mRemainingSeconds;
     }
 
+    public void setRemainingSeconds(int timeInSeconds){
+        mRemainingSeconds = timeInSeconds;
+    }
+
     public void setMessage(String message){
         mMessage = message;
     }

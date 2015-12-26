@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.SVGPath?>
+
+<?import com.sajibsrs.tracker.validator.NumberTextField?>
+<VBox fx:id="container" alignment="TOP_CENTER" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sajibsrs.tracker.controller.Menu">
+    <children>
+        <StackPane>
+            <children>
+                <Button fx:id="menu_btn" mnemonicParsing="false" onAction="#goToScreen1" styleClass="menu_buttons" StackPane.alignment="TOP_LEFT">
+                    <graphic>
+                        <SVGPath content="M20.016 11.016v1.969h-12.188l5.578 5.625-1.406 1.406-8.016-8.016 8.016-8.016 1.406 1.406-5.578 5.625h12.188z" styleClass="btn-svg" />
+                    </graphic>
+                </Button>
+            </children>
+        </StackPane>
+      <Label text="SET CUSTOM WORK TIME" styleClass="title_tag"/>
+      <Label text="HH : MM : SS" styleClass="label_tag" />
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+         <children>
+            <NumberTextField fx:id="hour_txt" text="0"/>
+            <NumberTextField fx:id="minute_txt" text="0"/>
+            <NumberTextField fx:id="second_txt" text="0"/>
+         </children>
+         <padding>
+            <Insets left="40.0" right="40.0" bottom="40" />
+         </padding>
+
+      </HBox>
+          <Button text="CONFIRM" onAction="#getCustomTime">
+          </Button>
+    </children>
+    <HBox>
+        <padding>
+            <Insets bottom="100.0" />
+        </padding>
+    </HBox>
+
+</VBox>

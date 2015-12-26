@@ -1,0 +1,77 @@
+* {
+    -fx-alignment: center;
+    -fx-text-fill: #000;
+    -fx-font-family: 'Roboto Regular';
+    -fx-font-smoothing-type: gray;
+}
+#container {
+    -fx-pref-width: 510px;
+    -fx-background-color: #eee;
+    -fx-padding: 20px 20px 100px 20px;
+}
+
+.title_tag{
+    -fx-font-size: 24px;
+    -fx-text-fill: #263238;
+    -fx-font-family: 'Roboto Light';
+    -fx-padding: 50px 0 0 0;
+}
+#counter{
+    -fx-font-size: 76px;
+    -fx-text-fill: #8cc030;
+    }
+.label_tag{
+    -fx-label-padding:  40px 0 20px;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #607D8B;
+}
+.text-field, #current_task_title{
+    -fx-max-height: 55px;
+    -fx-font-size: 16px;
+    -fx-text-fill: #8cc030;
+    -fx-font-weight: bold;
+    -fx-border-color: #d7d7d7;
+    -fx-border-width: 2px;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: #eee;
+    -fx-background-color: #eeeeee;
+}
+/*#current_task_title .content{*/
+    /*-fx-background-color: #eeeeee;*/
+
+    /*-fx-background-color: transparent;*/
+/*}*/
+
+/**.....................button styling.......................**/
+ .button{
+    -fx-padding: 10px 25px;
+    -fx-background-color: #607D8B;
+    -fx-text-fill: #fff;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(three-pass-box, rgba(55, 71, 79,1), 0, 0, 0, 3);
+}
+.button:hover{
+    -fx-background-color: #78909C;
+}
+.button:pressed{
+    -fx-background-color: #546E7A;
+}
+.btn-svg{
+    -fx-fill: #fff;
+    -fx-pref-height: 15px;
+    }
+
+.hidden{
+    visibility: hidden;
+}
+.button.menu_buttons{
+    -fx-alignment: center-right;
+    -fx-padding: 5px 10px;
+    -fx-background-color: #78909C;
+    -fx-effect: dropshadow(three-pass-box, rgba(55, 71, 79,0), 0, 0, 0, 3);
+}
+.menu_buttons .btn-svg{
+    -fx-fill: #FFF;
+}

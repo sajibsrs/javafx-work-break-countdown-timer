@@ -1,61 +1,52 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
+<?import java.lang.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.SVGPath?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.layout.BorderPane?>
-<VBox fx:controller="com.sajibsrs.tracker.controller.Home"
-      fx:id="container"
-      stylesheets="/css/sample.css"
-      xmlns:fx="http://javafx.com/fxml">
 
-    <Label fx:id="title"
-            text="${controller.taskText}" />
+<VBox fx:id="container" alignment="TOP_RIGHT" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sajibsrs.tracker.controller.Home">
+   <children>
+       <StackPane>
+          <children>
+              <Button fx:id="menu_btn" mnemonicParsing="false" onAction="#goToScreen2" styleClass="menu_buttons" textOverrun="CLIP" StackPane.alignment="TOP_RIGHT">
+                  <graphic>
+                      <SVGPath content="M12 15.516q1.453 0 2.484-1.031t1.031-2.484-1.031-2.484-2.484-1.031-2.484 1.031-1.031 2.484 1.031 2.484 2.484 1.031zM19.453 12.984l2.109 1.641q0.328 0.234 0.094 0.656l-2.016 3.469q-0.188 0.328-0.609 0.188l-2.484-0.984q-0.984 0.703-1.688 0.984l-0.375 2.625q-0.094 0.422-0.469 0.422h-4.031q-0.375 0-0.469-0.422l-0.375-2.625q-0.891-0.375-1.688-0.984l-2.484 0.984q-0.422 0.141-0.609-0.188l-2.016-3.469q-0.234-0.422 0.094-0.656l2.109-1.641q-0.047-0.328-0.047-0.984t0.047-0.984l-2.109-1.641q-0.328-0.234-0.094-0.656l2.016-3.469q0.188-0.328 0.609-0.188l2.484 0.984q0.984-0.703 1.688-0.984l0.375-2.625q0.094-0.422 0.469-0.422h4.031q0.375 0 0.469 0.422l0.375 2.625q0.891 0.375 1.688 0.984l2.484-0.984q0.422-0.141 0.609 0.188l2.016 3.469q0.234 0.422-0.094 0.656l-2.109 1.641q0.047 0.328 0.047 0.984t-0.047 0.984z" styleClass="btn-svg" />
+                  </graphic>
+              </Button>
+          </children>
+       </StackPane>
 
-    <Label fx:id="counter"
-            text="${controller.timerText}"/>
-
-    <HBox style="-fx-spacing: 20px;">
-        <StackPane>
-            <Button text="PAUSE"
-                    fx:id="pause_btn"
-                    styleClass="hidden"
-                    onAction="#pauseTimer">
-                <graphic>
-                    <HBox style="-fx-spacing: 3px">
-                    <SVGPath styleClass="btn-svg"
-                             content="M10.2 17c-1 0-1.8-.8-1.8-1.8V1.8c0-1 .8-1.8 1.8-1.8S12 .8 12 1.8v13.4c0 1-.8 1.8-1.8 1.8z"/>
-                    <SVGPath styleClass="btn-svg"
-                             content="M10.2 17c-1 0-1.8-.8-1.8-1.8V1.8c0-1 .8-1.8 1.8-1.8S12 .8 12 1.8v13.4c0 1-.8 1.8-1.8 1.8z"/>
-                    </HBox>
-                </graphic>
-            </Button>
-            <Button text="PLAY"
-                    styleClass="play"
-                    fx:id="play_btn"
-                    onAction="#playTimer">
-                <graphic>
-                    <SVGPath styleClass="btn-svg"
-                             content="M1.6 17C1 17 0 16.2 0 15.6V1.3C0 .1 2.2-.4 3.1.4l8.2 6.4c.5.4.8 1 .8 1.7 0 .6-.3 1.2-.8 1.7l-8.2 6.4c-.5.2-1 .4-1.5.4z"/>
-                </graphic>
-            </Button>
-        </StackPane>
-    <Button text="RESTART"
-            onAction="#handleRestart">
-        <graphic>
-            <SVGPath styleClass="btn-svg"
-                     content="M21 2.9C19.1 1 16.6 0 13.9 0c-1.1 0-2 .9-2 1.9s.9 1.9 2 1.9c1.7 0 3.2.6 4.4 1.8 2.4 2.4 2.4 6.3 0 8.7-1.2 1.2-2.7 1.8-4.4 1.8-1.7 0-3.2-.6-4.4-1.8-1.8-1.8-2.3-4.4-1.4-6.7L9.3 10c.2.4.5.7.9.8.4.1.8.1 1.2-.1.8-.4 1.1-1.3.8-2.1L10 4.3c0-.5-.2-1-.6-1.4l-.1-.1-.1-.2c-.2-.4-.5-.7-.9-.8-.4-.1-.8-.1-1.2.1L.9 4.8C.1 5.2-.2 6.1.2 6.9c.2.4.5.7.9.8.4.1.8.1 1.2-.1l2-.9c-1.2 3.5-.4 7.6 2.4 10.4C8.6 19 11.2 20 13.9 20s5.3-1 7.2-2.9C25 13.2 25 6.8 21 2.9z"/>
-        </graphic>
-    </Button>
-    </HBox>
-
+       <Label fx:id="title" styleClass="title_tag" text="${controller.taskText}" />
+   
+       <Label fx:id="counter" text="${controller.timerText}" />
+   
+       <HBox style="-fx-spacing: 20px;">
+      <children>
+              <StackPane>
+                 <children>
+                     <Button fx:id="pause_btn" onAction="#pauseTimer" styleClass="hidden" text="PAUSE">
+                         <graphic>
+                             <SVGPath content="M14.016 5.016h3.984v13.969h-3.984v-13.969zM6 18.984v-13.969h3.984v13.969h-3.984z" styleClass="btn-svg" />
+                         </graphic>
+                     </Button>
+                     <Button fx:id="play_btn" onAction="#playTimer" styleClass="play" text="PLAY">
+                         <graphic>
+                             <SVGPath content="M8.016 5.016l10.969 6.984-10.969 6.984v-13.969z" styleClass="btn-svg" />
+                         </graphic>
+                     </Button>
+                 </children>
+              </StackPane>
+          <Button onAction="#handleReset" text="RESET">
+              <graphic>
+                  <SVGPath content="M12 18v-3l3.984 3.984-3.984 4.031v-3q-3.281 0-5.648-2.367t-2.367-5.648q0-2.344 1.266-4.266l1.453 1.453q-0.703 1.266-0.703 2.813 0 2.484 1.758 4.242t4.242 1.758zM12 3.984q3.281 0 5.648 2.367t2.367 5.648q0 2.344-1.266 4.266l-1.453-1.453q0.703-1.266 0.703-2.813 0-2.484-1.758-4.242t-4.242-1.758v3l-3.984-3.984 3.984-4.031v3z" styleClass="btn-svg" />
+              </graphic>
+          </Button>
+      </children>
+       </HBox>
+       <Label styleClass="label_tag" text="NAME YOUR TASK" />
+       <TextField fx:id="current_task_title" />
+   </children>
 
 </VBox>
