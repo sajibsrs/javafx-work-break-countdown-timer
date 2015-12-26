@@ -12,24 +12,26 @@ public class Main extends Application {
     public static String screen1File = "/fxml/home.fxml";
     public static String screen2ID = "menu";
     public static String screen2File = "/fxml/menu.fxml";
-//    public static String screen3ID = "timeline";
-//    public static String screen3File = "timeline.fxml";
 
 
     @Override
     public void start(Stage primaryStage) {
-
+        
+        //Add screen controller to move to different screens
         ScreensController mainContainer = new ScreensController();
         mainContainer.loadScreen(Main.screen1ID, Main.screen1File);
         mainContainer.loadScreen(Main.screen2ID, Main.screen2File);
-        //mainContainer.loadScreen(Tracker.screen3ID, Tracker.screen3File);
 
         mainContainer.setScreen(Main.screen1ID);
-
+        
+        //Setup root and scene to be visible within your app
+        //add screen width and height
         Group root = new Group();
         root.getChildren().addAll(mainContainer);
         Scene scene = new Scene(root, 500, 500);
-
+    
+        //Add application icon, title, set scene, and resizable to false
+        //as we are only going to use a fixed size window
         primaryStage.getIcons().add(new Image("/images/icon.png"));
         primaryStage.setTitle("Tracker");
         primaryStage.setScene(scene);
@@ -37,17 +39,8 @@ public class Main extends Application {
 
         primaryStage.show();
     }
-//    @Override
-//    public void start(Stage homeStage) throws Exception{
-//        Parent root = FXMLLoader.load(getClass().getResource("/fxml/home.fxml"));
-//        homeStage.getIcons().add(new Image("/images/icon.png"));
-//        homeStage.setTitle("Tracker");
-//        homeStage.setScene(new Scene(root, 500, 500));
-//        homeStage.setResizable(false);
-//        homeStage.show();
-//    }
-
-
+    
+    //launch the application
     public static void main(String[] args) {
         launch(args);
     }
