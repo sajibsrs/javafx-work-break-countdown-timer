@@ -48,6 +48,4 @@ public class UserAction {
     public void save(){
         System.out.printf("Saving: %s %n", this);
     }
-
-
 }
